@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re-authenticate</title>
+    <script>
+        window.onload = function() {
+            // Extract email link from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const link = urlParams.get('link');
+
+            if (link) {
+                // Redirect back to the app with the email link
+                window.location.href = "yourapp://emailReauth?link=" + encodeURIComponent(link);
+            } else {
+                document.body.innerHTML = "<h3>Invalid re-authentication link.</h3>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Re-authenticating...</h2>
+</body>
+</html>
